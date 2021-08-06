@@ -1,0 +1,11 @@
+perl -pe 's/<TH>/<TH style="border: 3px solid black;text-align:center">/g; s/<TD>/<TD style="border: 2px solid black;text-align:center">/g; s/<TABLE BORDER=1>/<TABLE style="border: 3px solid black;border-collapse:collapse;">/g'
+
+
+
+
+
+-----------------------EXAMPLE DEKHO---
+MISC_ERROR_XML=$(mysql -h 10.0.70.28 -u'apimaster' -p'Ap1m@$73r' psms -He "select routeid,smscreasoncode,count(1) as Total_Count from dlrlog_05_08_2021 where reasoncode='100' and userid not in ('checkjboss') and routeid not in ('fakebard') and msgstatus != '16' group by 1,2 having Total_Count > 500 order by Total_Count desc;"|perl -pe 's/<TH>/<TH style="border: 3px solid black;text-align:center">/g; s/<TD>/<TD style="border: 2px solid black;text-align:center">/g; s/<TABLE BORDER=1>/<TABLE style="border: 3px solid black;border-collapse:collapse;">/g')
+
+
+--------------------------
